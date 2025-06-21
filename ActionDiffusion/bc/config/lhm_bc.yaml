@@ -1,0 +1,115 @@
+seed: -1
+
+clip_observations: 5.0
+clip_actions: 1.0
+
+name: train_lhm_bc
+
+task_name: grasp
+exp_name: "debug"
+exp_dir: ../ActionDiffusion/bc/saved_models
+train_data_dir: ./dataset/train
+test_data_dir: ./dataset/valid
+
+grasm3_root_dir: ./graspm3_structured
+load_traj_info: False
+
+
+train_obj_code_list:
+#  - "sem-Candle-1be58678b919b12bc5fe7f65b41f3b19"
+
+batch_size: 128 #128
+num_epochs: 2000
+
+add_noise: False
+noise_val: 0.05
+seq_num: 1000
+obs_type: "dexrep"
+
+seq_normalize: True
+num_frame: 80
+
+batch_seq_flat: True
+start_frame_pad: False
+
+use_sim_action: False
+
+infer_clip_sample: True
+
+lr: 2e-4
+obs_dim: 100
+horizon: 1
+
+obj_glob_feat_file: ./object_code_glob_feat.npy
+
+policy: # only works for MlpPolicy right now
+  actor_critic: 'ActorCriticDexRep'
+  pi_hid_sizes: [1024, 1024, 512, 512]
+  vf_hid_sizes: [1024, 1024, 512, 512]
+  activation: elu
+  actions_shape: 28
+  checkpoints: ActionDiffusion/bc/saved_models/1obj_seq2000_DexRep_pro100_start_uniform_vis_action_dsam_mod/last.ckpt
+
+encoder: # None
+  name: t20-retac-tmr05-bin-ft+dataset-BottleCap
+  pretrain_dir: "model/vitac/model_and_config"
+  freeze: True
+  emb_dim: 128
+  en_mode: patch
+  f_ex_mode: null
+  n_obs_steps: 1
+
+  bn_type: "part"
+
+learn:
+
+  agent_name: shadow_hand
+  test: False
+  resume: 0
+  # check for potential saves every this many iterations
+  save_interval: 1000 # 500
+  print_log: True
+
+  # rollout params
+  max_iterations: 10000000
+
+  # training params
+  cliprange: 0.2
+  ent_coef: 0
+  nsteps: 8
+  noptepochs: 5
+  nminibatches: 4 # this is per agent
+  max_grad_norm: 1
+  optim_stepsize: 3.e-4 # 3e-4 is default for single agent training with constant schedule
+  schedule: adaptive # could be adaptive or linear or fixed
+  desired_kl: 0.016
+  gamma: 0.96
+  lam: 0.95
+  init_noise_std: 0.8
+
+  log_interval: 1
+  asymmetric: False
+
+dataloader:
+  batch_size: 128
+  num_workers: 8
+  shuffle: True
+  pin_memory: True
+  persistent_workers: False
+
+val_dataloader:
+  batch_size: 128
+  num_workers: 8
+  shuffle: False
+  pin_memory: True
+  persistent_workers: False
+
+logging:
+  group: ${exp_name}
+  id: null
+  mode: offline #online
+  name: ${training.seed}
+  project: lhm_bc
+  resume: true
+  tags:
+  - lhm_bc

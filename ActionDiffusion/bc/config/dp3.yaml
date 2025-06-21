@@ -1,0 +1,263 @@
+defaults:
+  - task: shadow_grasp
+
+name: train_bc_dp3
+
+task_name: null
+
+shape_meta: &shape_meta
+  # acceptable types: rgb, low_dim
+  obs:
+    # image:
+    #     shape: *image_shape
+    #     type: rgb
+    obj_pcd:
+      shape: [2048, 3]
+      type: point_cloud
+
+    obs_pcds:
+      shape: [1024, 3]
+      type: point_cloud
+
+    seq_params:
+      shape: [28]
+      type: low_dim
+
+    actions:
+      shape: [28]
+
+  action:
+    shape: [28]
+
+
+exp_name: "debug"
+
+batch_size: 16 #128
+num_epochs: 1500
+lr: 2.0e-4
+
+horizon: 8 #8 #4
+n_obs_steps: 2 #2
+n_action_steps: 7 #7 #3
+n_latency_steps: 0
+dataset_obs_steps: ${n_obs_steps}
+keypoint_visible_rate: 1.0
+
+
+obs_as_global_cond: True #False
+
+obs_as_dexrep_cond: False #True
+use_orig_encoder: True  #False
+
+batch_seq_flat: False
+start_frame_pad: True
+use_sim_action: False
+
+obs_type: 'dexrep' #'dexrep' 'pcds'
+
+exp_dir: ../ActionDiffusion/bc/saved_models
+train_data_dir: ./dataset/train
+test_data_dir: ./dataset/valid
+
+grasm3_root_dir: ./graspm3_structured
+load_traj_info: False
+
+obs_dim: 100
+
+train_obj_code_list:
+#  - "sem-Candle-1be58678b919b12bc5fe7f65b41f3b19"
+
+obj_glob_feat_file: ./object_code_glob_feat.npy
+
+training:
+  device: "cuda:0"
+  seed: 42
+  debug: False
+  resume: True
+  lr_scheduler: cosine
+  lr_warmup_steps: 500
+  num_epochs: ${num_epochs} #3000
+  gradient_accumulate_every: 1
+  use_ema: True
+  rollout_every: 200
+  checkpoint_every: 50
+  val_every: 1
+  sample_every: 5
+  max_train_steps: null
+  max_val_steps: null
+  tqdm_interval_sec: 1.0
+
+
+policy:
+  _target_: ActionDiffusion.model.policy.dp3_lightning.DP3Lightning
+  use_ema: ${training.use_ema}
+
+  checkpoints: ActionDiffusion/bc/saved_models/1obj_seq2000_DexRep_pro100_start_uniform_DP3Dexrep_horizon8_use_smooth_vis_action_dsam_mod/last.ckpt
+
+  use_point_crop: true
+  condition_type: film
+  use_down_condition: true
+  use_mid_condition: true
+  use_up_condition: true
+  actions_shape: 28
+  obs_dim: ${obs_dim}
+  diffusion_step_embed_dim: 128
+  down_dims:
+  - 256 #512
+  - 512 #1024
+  - 1024 #2048
+  crop_shape:
+  - 80
+  - 80
+  encoder_output_dim: 64
+  horizon: ${horizon}
+  kernel_size: 5
+  n_action_steps: ${n_action_steps}
+  n_groups: 8
+  n_obs_steps: ${n_obs_steps}
+
+  loss_cfg:
+    use_smooth_loss: True
+    smooth_w: 0.02 #0.008
+
+  noise_scheduler:
+    _target_: diffusers.schedulers.scheduling_ddim.DDIMScheduler
+    num_train_timesteps: 200 #100
+    beta_start: 0.0001
+    beta_end: 0.02
+    beta_schedule: squaredcos_cap_v2   #squaredcos_cap_v2
+    clip_sample: True
+    set_alpha_to_one: True
+    steps_offset: 0
+    prediction_type: sample
+
+
+  num_inference_steps: 5 #10
+  obs_as_global_cond: ${obs_as_global_cond}
+  obs_as_dexrep_cond: ${obs_as_dexrep_cond}
+
+  shape_meta: ${shape_meta}
+
+  use_pc_color: false
+  pointnet_type: "pointnet"
+
+
+  pointcloud_encoder_cfg:
+    use_orig_encoder: ${use_orig_encoder}
+
+
+    batch_size: ${batch_size}
+    in_channels: 3
+    out_channels: 64
+    use_layernorm: true
+    final_norm: layernorm # layernorm, none
+    normal_channel: false
+
+    feature_transform: True
+    only_point_feat: True
+    global_feat: False
+    stn_mode: bn
+    pcd_encoder_ckpt:
+    freeze_ckpt: True
+
+
+  actor_critic: 'ActorCriticDexRep'
+
+  dexrep_encoder_cfg:
+    use_orig_encoder: ${use_orig_encoder}
+    load_dexrep_pretrained: False
+    dexrep_pretrained_pth:
+
+    obs_shape: null
+    actions_shape: 28
+    initial_std: 0.8
+    encoder_only: True
+    model_cfg:
+      actor_critic: ${actor_critic}
+      pi_hid_sizes: [1024, 1024, 512, 512]
+      vf_hid_sizes: [1024, 1024, 512, 512]
+      activation: elu # can be elu, relu, selu, crelu, lrelu, tanh, sigmoid
+
+    encoder_cfg:
+      name: t20-retac-tmr05-bin-ft+dataset-BottleCap
+      pretrain_dir: "model/vitac/model_and_config"
+      freeze: True
+      emb_dim: 128
+      en_mode: patch
+      f_ex_mode: null
+      bn_type: "part"
+      n_action_steps: ${n_action_steps}
+      n_obs_steps: ${n_obs_steps}
+    env_cfg:
+      obs_dim:
+        prop: 100 #134 #128 #134 # 211 #propriception
+        dexrep_sensor: 1080
+        dexrep_pnl: 1280
+        pnG: 1024
+
+
+
+
+ema:
+  _target_: ActionDiffusion.model.diffusion.ema_model.EMAModel
+  update_after_step: 0
+  inv_gamma: 1.0
+  power: 0.75
+  min_value: 0.0
+  max_value: 0.9999
+
+dataloader:
+  batch_size: ${batch_size}
+  num_workers: 8
+  shuffle: True
+  pin_memory: True
+  persistent_workers: False
+
+val_dataloader:
+  batch_size: ${batch_size}
+  num_workers: 8
+  shuffle: False
+  pin_memory: True
+  persistent_workers: False
+
+optimizer:
+  _target_: torch.optim.AdamW
+  lr: ${lr}
+  betas: [0.95, 0.999]
+  eps: 1.0e-8
+  weight_decay: 1.0e-6
+
+
+logging:
+  group: ${exp_name}
+  id: null
+  mode: offline #online
+  name: ${training.seed}
+  project: dp3
+  resume: true
+  tags:
+  - dp3
+
+checkpoint:
+
+  save_ckpt: True # if True, save checkpoint every checkpoint_every
+  topk:
+    monitor_key: test_mean_score
+    mode: max
+    k: 1
+    format_str: 'epoch={epoch:04d}-test_mean_score={test_mean_score:.3f}.ckpt'
+  save_last_ckpt: True # this only saves when save_ckpt is True
+  save_last_snapshot: False
+
+multi_run:
+  run_dir: data/outputs/${now:%Y.%m.%d}/${now:%H.%M.%S}_${name}_${task_name}
+  wandb_name_base: ${now:%Y.%m.%d-%H.%M.%S}_${name}_${task_name}
+
+hydra:
+  job:
+    override_dirname: ${name}
+  run:
+    dir: data/outputs/${now:%Y.%m.%d}/${now:%H.%M.%S}_${name}_${task_name}
+  sweep:
+    dir: data/outputs/${now:%Y.%m.%d}/${now:%H.%M.%S}_${name}_${task_name}
+    subdir: ${hydra.job.num}
