@@ -1,0 +1,20 @@
+status: frozen_bc_train_object_heldout_trajectory_validation
+purpose: Select checkpoints on held-out trajectories of the 16 training objects.
+uses_unseen_final_v2: false
+object_ids:
+- core-bottle-714320da4aafcb4a47be2353d2b2403b
+- core-bottle-dc005c019fbfb32c90071898148dca0e
+- core-bottle-d3eea69d9d58401c76c2a9de5c96f76
+- core-bottle-ba4b48d76eb79f7cf54e1b6f41fdd78a
+- core-mug-1a97f3c83016abca21d0de04f408950f
+- core-mug-b4ae56d6638d5338de671f28c83d2dcb
+- core-mug-35ce7ede92198be2b759f7fb0032e59
+- core-mug-c51b79493419eccdc1584fff35347dc6
+- core-bowl-4227b58665eadcefc0dc3ed657ab97f0
+- core-bowl-e3095ecacc36080cb398a1cfd1079875
+- core-bowl-b65cbede8f483d51f7de4d28691515e1
+- core-bowl-817221e45b63cef62f74bdafe5239fba
+- core-camera-82819e1201d2dc583a3e53900c6cbba
+- core-camera-a3c9dcaada9e04d09061da204e7c463c
+- core-camera-9d79c246317bbbe87f72d6c7f2024896
+- core-camera-a59cbd50ecf38a1be2dc67b821479cc4

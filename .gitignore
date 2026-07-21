@@ -1,0 +1,44 @@
+# Python caches and local editor settings
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.vscode/
+
+# Local logs and temporary files
+*.log
+*.bak
+*.tmp
+*.swp
+
+# Model checkpoints and generated training data
+*.ckpt
+*.pth
+*.pt
+*.npz
+*.npy
+/custom_tools/runs/
+/custom_tools/data/
+/custom_tools/logs/
+/ActionDiffusion/bc/saved_models/
+
+# Downloaded datasets, meshes, and external source trees
+/dexgrasp/dataset/
+/dexgrasp/results/
+/assets/meshdata/
+/external_data/
+/TorchSDF/
+
+# Downloaded archives and local binary packages
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+*.whl
+*.bz2
+*.so
+
+# OS-generated files
+.DS_Store
+Thumbs.db

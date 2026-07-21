@@ -1,0 +1,49 @@
+# Observation-noise sweep: all settings match noise002 except noise_val.
+seed: 2025
+
+name: train_lhm_bc
+exp_dir: ../custom_tools/runs/bc
+run_name: multicategory_bc_noise005
+checkpoint_every_n_epochs: 10
+check_val_every_n_epoch: 1
+
+train_data_dir: ./dataset/bc_multicategory_train
+test_data_dir: ./dataset/bc_multicategory_valid
+train_obj_code_list:
+
+batch_size: 128
+num_epochs: 100
+seq_num: 395
+val_seq_num: 100
+category_balanced_sampling: true
+
+add_noise: true
+noise_val: 0.05
+obs_type: dexrep
+seq_normalize: true
+num_frame: 70
+batch_seq_flat: true
+start_frame_pad: false
+use_sim_action: false
+infer_clip_sample: true
+
+lr: 2e-4
+obs_dim: 100
+horizon: 1
+obj_glob_feat_file: ./object_code_glob_feat.npy
+
+policy:
+  actor_critic: ActorCriticDexRep
+  pi_hid_sizes: [1024, 1024, 512, 512]
+  vf_hid_sizes: [1024, 1024, 512, 512]
+  activation: elu
+  actions_shape: 28
+
+encoder:
+  freeze: true
+  emb_dim: 128
+  n_obs_steps: 1
+  bn_type: part
+
+learn:
+  init_noise_std: 0.8

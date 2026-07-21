@@ -1,0 +1,126 @@
+status: frozen_stage1_selection
+source_evaluation: /home/lekangwan/projects/DexGraspMotionChallenge2025/custom_tools/results/evaluations/residual_stage1_bc_all_train_trajectories.yaml
+trajectory_root: /home/lekangwan/projects/DexGraspMotionChallenge2025/dexgrasp/dataset/bc_multicategory_train
+uses_unseen_test_objects: false
+selection_rule: One single-object-evaluation success closest to 30 cm (or highest-lift
+  failure), two high-lift failed trajectories with rotation/scale diversity, and one
+  diverse median-lift failure.
+object_ids:
+- core-bottle-714320da4aafcb4a47be2353d2b2403b
+- core-mug-1a97f3c83016abca21d0de04f408950f
+- core-bowl-4227b58665eadcefc0dc3ed657ab97f0
+- core-camera-82819e1201d2dc583a3e53900c6cbba
+trajectory_indices_by_object:
+  core-bottle-714320da4aafcb4a47be2353d2b2403b: &id001
+  - 20
+  - 13
+  - 1
+  - 8
+  core-mug-1a97f3c83016abca21d0de04f408950f: &id002
+  - 6
+  - 9
+  - 25
+  - 0
+  core-bowl-4227b58665eadcefc0dc3ed657ab97f0: &id003
+  - 10
+  - 0
+  - 1
+  - 3
+  core-camera-82819e1201d2dc583a3e53900c6cbba: &id004
+  - 24
+  - 15
+  - 2
+  - 14
+objects:
+- object_id: core-bottle-714320da4aafcb4a47be2353d2b2403b
+  trajectory_indices: *id001
+  selected:
+  - index: 20
+    role: single_object_success_anchor
+    diagnostic_ever_success: true
+    diagnostic_maximum_lift_m: 0.24667030572891235
+    object_scale: 0.11999998986721039
+  - index: 13
+    role: high_lift_failure
+    diagnostic_ever_success: false
+    diagnostic_maximum_lift_m: 0.18333053588867188
+    object_scale: 0.10000000149011612
+  - index: 1
+    role: high_lift_failure
+    diagnostic_ever_success: false
+    diagnostic_maximum_lift_m: 0.07154226303100586
+    object_scale: 0.11999998986721039
+  - index: 8
+    role: medium_failure
+    diagnostic_ever_success: false
+    diagnostic_maximum_lift_m: 0.0025628209114074707
+    object_scale: 0.11999998986721039
+- object_id: core-mug-1a97f3c83016abca21d0de04f408950f
+  trajectory_indices: *id002
+  selected:
+  - index: 6
+    role: single_object_success_anchor
+    diagnostic_ever_success: true
+    diagnostic_maximum_lift_m: 0.5664781928062439
+    object_scale: 0.059999994933605194
+  - index: 9
+    role: high_lift_failure
+    diagnostic_ever_success: false
+    diagnostic_maximum_lift_m: 0.033525943756103516
+    object_scale: 0.07999999821186066
+  - index: 25
+    role: high_lift_failure
+    diagnostic_ever_success: false
+    diagnostic_maximum_lift_m: 0.03207165002822876
+    object_scale: 0.059999994933605194
+  - index: 0
+    role: medium_failure
+    diagnostic_ever_success: false
+    diagnostic_maximum_lift_m: 0.00879669189453125
+    object_scale: 0.059999994933605194
+- object_id: core-bowl-4227b58665eadcefc0dc3ed657ab97f0
+  trajectory_indices: *id003
+  selected:
+  - index: 10
+    role: single_object_success_anchor
+    diagnostic_ever_success: true
+    diagnostic_maximum_lift_m: 0.30956393480300903
+    object_scale: 0.10000000149011612
+  - index: 0
+    role: high_lift_failure
+    diagnostic_ever_success: false
+    diagnostic_maximum_lift_m: 0.15011441707611084
+    object_scale: 0.07999999821186066
+  - index: 1
+    role: high_lift_failure
+    diagnostic_ever_success: false
+    diagnostic_maximum_lift_m: 0.0941959023475647
+    object_scale: 0.07999999821186066
+  - index: 3
+    role: medium_failure
+    diagnostic_ever_success: false
+    diagnostic_maximum_lift_m: 0.03199964761734009
+    object_scale: 0.15000000596046448
+- object_id: core-camera-82819e1201d2dc583a3e53900c6cbba
+  trajectory_indices: *id004
+  selected:
+  - index: 24
+    role: single_object_success_anchor
+    diagnostic_ever_success: true
+    diagnostic_maximum_lift_m: 0.3289864659309387
+    object_scale: 0.059999994933605194
+  - index: 15
+    role: high_lift_failure
+    diagnostic_ever_success: false
+    diagnostic_maximum_lift_m: 0.032978594303131104
+    object_scale: 0.07999999821186066
+  - index: 2
+    role: high_lift_failure
+    diagnostic_ever_success: false
+    diagnostic_maximum_lift_m: 0.0195273756980896
+    object_scale: 0.059999994933605194
+  - index: 14
+    role: medium_failure
+    diagnostic_ever_success: false
+    diagnostic_maximum_lift_m: 0.0018538236618041992
+    object_scale: 0.07999999821186066

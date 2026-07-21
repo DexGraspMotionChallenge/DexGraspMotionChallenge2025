@@ -1,0 +1,462 @@
+status: frozen_stage1_selection
+stage: soup_bc_behavior_anchored_gated_residual
+trajectory_root: /home/lekangwan/projects/DexGraspMotionChallenge2025/dexgrasp/dataset/bc_multicategory_train
+source_audit: /home/lekangwan/projects/DexGraspMotionChallenge2025/custom_tools/results/evaluations/bc_soup_weighted_train395_isolated.yaml
+uses_unseen_test_objects: false
+selection_rule: Four trajectories per object. Use two genuine successes and two valid
+  failures when available; if only one success exists, use one genuine anchor and
+  three valid failures. Never label a failure as an anchor.
+object_ids:
+- core-bottle-714320da4aafcb4a47be2353d2b2403b
+- core-bottle-dc005c019fbfb32c90071898148dca0e
+- core-bottle-d3eea69d9d58401c76c2a9de5c96f76
+- core-bottle-ba4b48d76eb79f7cf54e1b6f41fdd78a
+- core-mug-1a97f3c83016abca21d0de04f408950f
+- core-mug-b4ae56d6638d5338de671f28c83d2dcb
+- core-mug-35ce7ede92198be2b759f7fb0032e59
+- core-mug-c51b79493419eccdc1584fff35347dc6
+- core-bowl-4227b58665eadcefc0dc3ed657ab97f0
+- core-bowl-e3095ecacc36080cb398a1cfd1079875
+- core-bowl-b65cbede8f483d51f7de4d28691515e1
+- core-bowl-817221e45b63cef62f74bdafe5239fba
+- core-camera-82819e1201d2dc583a3e53900c6cbba
+- core-camera-a3c9dcaada9e04d09061da204e7c463c
+- core-camera-9d79c246317bbbe87f72d6c7f2024896
+- core-camera-a59cbd50ecf38a1be2dc67b821479cc4
+trajectory_indices_by_object:
+  core-bottle-714320da4aafcb4a47be2353d2b2403b: &id001
+  - 13
+  - 10
+  - 20
+  - 5
+  core-bottle-dc005c019fbfb32c90071898148dca0e: &id004
+  - 19
+  - 13
+  - 1
+  - 10
+  core-bottle-d3eea69d9d58401c76c2a9de5c96f76: &id007
+  - 10
+  - 14
+  - 17
+  - 26
+  core-bottle-ba4b48d76eb79f7cf54e1b6f41fdd78a: &id010
+  - 20
+  - 26
+  - 8
+  - 6
+  core-mug-1a97f3c83016abca21d0de04f408950f: &id013
+  - 25
+  - 28
+  - 8
+  - 27
+  core-mug-b4ae56d6638d5338de671f28c83d2dcb: &id016
+  - 27
+  - 15
+  - 22
+  - 5
+  core-mug-35ce7ede92198be2b759f7fb0032e59: &id019
+  - 29
+  - 28
+  - 24
+  - 9
+  core-mug-c51b79493419eccdc1584fff35347dc6: &id022
+  - 9
+  - 2
+  - 0
+  - 12
+  core-bowl-4227b58665eadcefc0dc3ed657ab97f0: &id025
+  - 19
+  - 24
+  - 17
+  - 2
+  core-bowl-e3095ecacc36080cb398a1cfd1079875: &id028
+  - 22
+  - 10
+  - 13
+  - 21
+  core-bowl-b65cbede8f483d51f7de4d28691515e1: &id031
+  - 0
+  - 1
+  - 4
+  - 7
+  core-bowl-817221e45b63cef62f74bdafe5239fba: &id034
+  - 5
+  - 3
+  - 8
+  - 10
+  core-camera-82819e1201d2dc583a3e53900c6cbba: &id037
+  - 2
+  - 26
+  - 1
+  - 20
+  core-camera-a3c9dcaada9e04d09061da204e7c463c: &id040
+  - 11
+  - 17
+  - 20
+  - 2
+  core-camera-9d79c246317bbbe87f72d6c7f2024896: &id043
+  - 8
+  - 16
+  - 7
+  - 5
+  core-camera-a59cbd50ecf38a1be2dc67b821479cc4: &id046
+  - 5
+  - 1
+  - 6
+  - 3
+anchor_indices_by_object:
+  core-bottle-714320da4aafcb4a47be2353d2b2403b: &id002
+  - 13
+  - 10
+  core-bottle-dc005c019fbfb32c90071898148dca0e: &id005
+  - 19
+  - 13
+  core-bottle-d3eea69d9d58401c76c2a9de5c96f76: &id008
+  - 10
+  - 14
+  core-bottle-ba4b48d76eb79f7cf54e1b6f41fdd78a: &id011
+  - 20
+  - 26
+  core-mug-1a97f3c83016abca21d0de04f408950f: &id014
+  - 25
+  - 28
+  core-mug-b4ae56d6638d5338de671f28c83d2dcb: &id017
+  - 27
+  - 15
+  core-mug-35ce7ede92198be2b759f7fb0032e59: &id020
+  - 29
+  - 28
+  core-mug-c51b79493419eccdc1584fff35347dc6: &id023
+  - 9
+  - 2
+  core-bowl-4227b58665eadcefc0dc3ed657ab97f0: &id026
+  - 19
+  - 24
+  core-bowl-e3095ecacc36080cb398a1cfd1079875: &id029
+  - 22
+  - 10
+  core-bowl-b65cbede8f483d51f7de4d28691515e1: &id032
+  - 0
+  core-bowl-817221e45b63cef62f74bdafe5239fba: &id035
+  - 5
+  - 3
+  core-camera-82819e1201d2dc583a3e53900c6cbba: &id038
+  - 2
+  - 26
+  core-camera-a3c9dcaada9e04d09061da204e7c463c: &id041
+  - 11
+  - 17
+  core-camera-9d79c246317bbbe87f72d6c7f2024896: &id044
+  - 8
+  - 16
+  core-camera-a59cbd50ecf38a1be2dc67b821479cc4: &id047
+  - 5
+  - 1
+anchor_flags_by_object:
+  core-bottle-714320da4aafcb4a47be2353d2b2403b: &id003
+  - true
+  - true
+  - false
+  - false
+  core-bottle-dc005c019fbfb32c90071898148dca0e: &id006
+  - true
+  - true
+  - false
+  - false
+  core-bottle-d3eea69d9d58401c76c2a9de5c96f76: &id009
+  - true
+  - true
+  - false
+  - false
+  core-bottle-ba4b48d76eb79f7cf54e1b6f41fdd78a: &id012
+  - true
+  - true
+  - false
+  - false
+  core-mug-1a97f3c83016abca21d0de04f408950f: &id015
+  - true
+  - true
+  - false
+  - false
+  core-mug-b4ae56d6638d5338de671f28c83d2dcb: &id018
+  - true
+  - true
+  - false
+  - false
+  core-mug-35ce7ede92198be2b759f7fb0032e59: &id021
+  - true
+  - true
+  - false
+  - false
+  core-mug-c51b79493419eccdc1584fff35347dc6: &id024
+  - true
+  - true
+  - false
+  - false
+  core-bowl-4227b58665eadcefc0dc3ed657ab97f0: &id027
+  - true
+  - true
+  - false
+  - false
+  core-bowl-e3095ecacc36080cb398a1cfd1079875: &id030
+  - true
+  - true
+  - false
+  - false
+  core-bowl-b65cbede8f483d51f7de4d28691515e1: &id033
+  - true
+  - false
+  - false
+  - false
+  core-bowl-817221e45b63cef62f74bdafe5239fba: &id036
+  - true
+  - true
+  - false
+  - false
+  core-camera-82819e1201d2dc583a3e53900c6cbba: &id039
+  - true
+  - true
+  - false
+  - false
+  core-camera-a3c9dcaada9e04d09061da204e7c463c: &id042
+  - true
+  - true
+  - false
+  - false
+  core-camera-9d79c246317bbbe87f72d6c7f2024896: &id045
+  - true
+  - true
+  - false
+  - false
+  core-camera-a59cbd50ecf38a1be2dc67b821479cc4: &id048
+  - true
+  - true
+  - false
+  - false
+selection_details:
+  core-bottle-714320da4aafcb4a47be2353d2b2403b:
+    indices: *id001
+    anchor_indices: *id002
+    anchor_flags: *id003
+    roles:
+      success_anchor_moderate: 13
+      success_anchor_strong: 10
+      failure_near_miss: 20
+      failure_median: 5
+    maximum_lift_m:
+      '13': 0.3029065728187561
+      '10': 0.5241699814796448
+      '20': 0.10654479265213013
+      '5': 0.004134953022003174
+  core-bottle-dc005c019fbfb32c90071898148dca0e:
+    indices: *id004
+    anchor_indices: *id005
+    anchor_flags: *id006
+    roles:
+      success_anchor_moderate: 19
+      success_anchor_strong: 13
+      failure_near_miss: 1
+      failure_median: 10
+    maximum_lift_m:
+      '19': 0.2485511302947998
+      '13': 0.4631770849227905
+      '1': 0.04061323404312134
+      '10': 0.0016292929649353027
+  core-bottle-d3eea69d9d58401c76c2a9de5c96f76:
+    indices: *id007
+    anchor_indices: *id008
+    anchor_flags: *id009
+    roles:
+      success_anchor_moderate: 10
+      success_anchor_strong: 14
+      failure_near_miss: 17
+      failure_median: 26
+    maximum_lift_m:
+      '10': 0.29536330699920654
+      '14': 0.4841082692146301
+      '17': 0.11102652549743652
+      '26': 0.005913734436035156
+  core-bottle-ba4b48d76eb79f7cf54e1b6f41fdd78a:
+    indices: *id010
+    anchor_indices: *id011
+    anchor_flags: *id012
+    roles:
+      success_anchor_moderate: 20
+      success_anchor_strong: 26
+      failure_near_miss: 8
+      failure_median: 6
+    maximum_lift_m:
+      '20': 0.2829323410987854
+      '26': 0.5133411288261414
+      '8': 0.10634422302246094
+      '6': 0.005338728427886963
+  core-mug-1a97f3c83016abca21d0de04f408950f:
+    indices: *id013
+    anchor_indices: *id014
+    anchor_flags: *id015
+    roles:
+      success_anchor_moderate: 25
+      success_anchor_strong: 28
+      failure_near_miss: 8
+      failure_median: 27
+    maximum_lift_m:
+      '25': 0.30592572689056396
+      '28': 0.5129086375236511
+      '8': 0.02941441535949707
+      '27': 0.007160782814025879
+  core-mug-b4ae56d6638d5338de671f28c83d2dcb:
+    indices: *id016
+    anchor_indices: *id017
+    anchor_flags: *id018
+    roles:
+      success_anchor_moderate: 27
+      success_anchor_strong: 15
+      failure_near_miss: 22
+      failure_median: 5
+    maximum_lift_m:
+      '27': 0.2586174011230469
+      '15': 0.5055649280548096
+      '22': 0.10078847408294678
+      '5': 0.004922389984130859
+  core-mug-35ce7ede92198be2b759f7fb0032e59:
+    indices: *id019
+    anchor_indices: *id020
+    anchor_flags: *id021
+    roles:
+      success_anchor_moderate: 29
+      success_anchor_strong: 28
+      failure_near_miss: 24
+      failure_median: 9
+    maximum_lift_m:
+      '29': 0.35684311389923096
+      '28': 0.6669197082519531
+      '24': 0.15392780303955078
+      '9': 0.004956722259521484
+  core-mug-c51b79493419eccdc1584fff35347dc6:
+    indices: *id022
+    anchor_indices: *id023
+    anchor_flags: *id024
+    roles:
+      success_anchor_moderate: 9
+      success_anchor_strong: 2
+      failure_near_miss: 0
+      failure_median: 12
+    maximum_lift_m:
+      '9': 0.32621943950653076
+      '2': 0.35481733083724976
+      '0': 0.03205829858779907
+      '12': 0.011638939380645752
+  core-bowl-4227b58665eadcefc0dc3ed657ab97f0:
+    indices: *id025
+    anchor_indices: *id026
+    anchor_flags: *id027
+    roles:
+      success_anchor_moderate: 19
+      success_anchor_strong: 24
+      failure_near_miss: 17
+      failure_median: 2
+    maximum_lift_m:
+      '19': 0.4199989438056946
+      '24': 0.5252318382263184
+      '17': 0.049005746841430664
+      '2': 0.01350325345993042
+  core-bowl-e3095ecacc36080cb398a1cfd1079875:
+    indices: *id028
+    anchor_indices: *id029
+    anchor_flags: *id030
+    roles:
+      success_anchor_moderate: 22
+      success_anchor_strong: 10
+      failure_near_miss: 13
+      failure_median: 21
+    maximum_lift_m:
+      '22': 0.36596447229385376
+      '10': 0.4800753593444824
+      '13': 0.13843238353729248
+      '21': 0.008013546466827393
+  core-bowl-b65cbede8f483d51f7de4d28691515e1:
+    indices: *id031
+    anchor_indices: *id032
+    anchor_flags: *id033
+    roles:
+      success_anchor_single: 0
+      failure_near_miss: 1
+      failure_high: 4
+      failure_median: 7
+    maximum_lift_m:
+      '0': 0.615058422088623
+      '1': 0.14703577756881714
+      '4': 0.011954128742218018
+      '7': 0.005528748035430908
+  core-bowl-817221e45b63cef62f74bdafe5239fba:
+    indices: *id034
+    anchor_indices: *id035
+    anchor_flags: *id036
+    roles:
+      success_anchor_moderate: 5
+      success_anchor_strong: 3
+      failure_near_miss: 8
+      failure_median: 10
+    maximum_lift_m:
+      '5': 0.43414562940597534
+      '3': 0.5220270156860352
+      '8': 0.15271705389022827
+      '10': 0.03000164031982422
+  core-camera-82819e1201d2dc583a3e53900c6cbba:
+    indices: *id037
+    anchor_indices: *id038
+    anchor_flags: *id039
+    roles:
+      success_anchor_moderate: 2
+      success_anchor_strong: 26
+      failure_near_miss: 1
+      failure_median: 20
+    maximum_lift_m:
+      '2': 0.483070969581604
+      '26': 0.5513507127761841
+      '1': 0.08043825626373291
+      '20': 0.005284547805786133
+  core-camera-a3c9dcaada9e04d09061da204e7c463c:
+    indices: *id040
+    anchor_indices: *id041
+    anchor_flags: *id042
+    roles:
+      success_anchor_moderate: 11
+      success_anchor_strong: 17
+      failure_near_miss: 20
+      failure_median: 2
+    maximum_lift_m:
+      '11': 0.21590834856033325
+      '17': 0.5089312195777893
+      '20': 0.01836782693862915
+      '2': 0.007685840129852295
+  core-camera-9d79c246317bbbe87f72d6c7f2024896:
+    indices: *id043
+    anchor_indices: *id044
+    anchor_flags: *id045
+    roles:
+      success_anchor_moderate: 8
+      success_anchor_strong: 16
+      failure_near_miss: 7
+      failure_median: 5
+    maximum_lift_m:
+      '8': 0.3259122371673584
+      '16': 0.5200413465499878
+      '7': 0.037737250328063965
+      '5': 0.007802784442901611
+  core-camera-a59cbd50ecf38a1be2dc67b821479cc4:
+    indices: *id046
+    anchor_indices: *id047
+    anchor_flags: *id048
+    roles:
+      success_anchor_moderate: 5
+      success_anchor_strong: 1
+      failure_near_miss: 6
+      failure_median: 3
+    maximum_lift_m:
+      '5': 0.46473222970962524
+      '1': 0.47870975732803345
+      '6': 0.008332490921020508
+      '3': 0.0032152533531188965
+total_environments: 64
+total_anchor_environments: 31

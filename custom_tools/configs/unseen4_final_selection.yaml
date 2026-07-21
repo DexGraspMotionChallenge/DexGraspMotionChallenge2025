@@ -1,0 +1,16 @@
+status: frozen_final_test
+stage: final_unseen_object_evaluation
+trajectory_root: /home/lekangwan/projects/DexGraspMotionChallenge2025/dexgrasp/dataset/object_split_final_unseen
+uses_unseen_test_objects: true
+selection_rule: One frozen object per category; never used for training, tuning, or checkpoint selection.
+object_ids:
+- core-bottle-91235f7d65aec958ca972daa503b3095
+- core-bowl-2d2c419136447fe667964ba700cd97f5
+- core-camera-c9c9ffd08af8b268b52759c2c2fc0d1e
+- core-mug-92d6394732e6058d4bcbafcc905a9b98
+trajectory_counts:
+  core-bottle-91235f7d65aec958ca972daa503b3095: 37
+  core-bowl-2d2c419136447fe667964ba700cd97f5: 24
+  core-camera-c9c9ffd08af8b268b52759c2c2fc0d1e: 17
+  core-mug-92d6394732e6058d4bcbafcc905a9b98: 17
+total_trajectories: 95

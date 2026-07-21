@@ -1,0 +1,302 @@
+status: frozen_stage1_selection
+stage: noise_bc_balanced64_gated_residual_comparison
+trajectory_root: /home/lekangwan/projects/DexGraspMotionChallenge2025/dexgrasp/dataset/bc_multicategory_train
+source_audit: /home/lekangwan/projects/DexGraspMotionChallenge2025/custom_tools/results/evaluations/bc_noise002_e100_bc_train395_isolated.yaml
+uses_unseen_test_objects: false
+selection_rule: 'Per object: two successful BC anchors nearest 0.30 m and 0.50 m lift;
+  one highest-lift valid failure and one median valid failure. Valid failures have
+  lift in [0, 0.30] m.'
+warning: Some former fixed indices 0-9 are now training data; use the separate held-out
+  validation set for model comparison.
+object_ids:
+- core-bottle-714320da4aafcb4a47be2353d2b2403b
+- core-bottle-dc005c019fbfb32c90071898148dca0e
+- core-bottle-d3eea69d9d58401c76c2a9de5c96f76
+- core-bottle-ba4b48d76eb79f7cf54e1b6f41fdd78a
+- core-mug-1a97f3c83016abca21d0de04f408950f
+- core-mug-b4ae56d6638d5338de671f28c83d2dcb
+- core-mug-35ce7ede92198be2b759f7fb0032e59
+- core-mug-c51b79493419eccdc1584fff35347dc6
+- core-bowl-4227b58665eadcefc0dc3ed657ab97f0
+- core-bowl-e3095ecacc36080cb398a1cfd1079875
+- core-bowl-b65cbede8f483d51f7de4d28691515e1
+- core-bowl-817221e45b63cef62f74bdafe5239fba
+- core-camera-82819e1201d2dc583a3e53900c6cbba
+- core-camera-a3c9dcaada9e04d09061da204e7c463c
+- core-camera-9d79c246317bbbe87f72d6c7f2024896
+- core-camera-a59cbd50ecf38a1be2dc67b821479cc4
+trajectory_indices_by_object:
+  core-bottle-714320da4aafcb4a47be2353d2b2403b: &id001
+  - 14
+  - 12
+  - 1
+  - 17
+  core-bottle-dc005c019fbfb32c90071898148dca0e: &id002
+  - 1
+  - 26
+  - 16
+  - 6
+  core-bottle-d3eea69d9d58401c76c2a9de5c96f76: &id003
+  - 20
+  - 7
+  - 10
+  - 15
+  core-bottle-ba4b48d76eb79f7cf54e1b6f41fdd78a: &id004
+  - 21
+  - 1
+  - 28
+  - 6
+  core-mug-1a97f3c83016abca21d0de04f408950f: &id005
+  - 18
+  - 16
+  - 7
+  - 2
+  core-mug-b4ae56d6638d5338de671f28c83d2dcb: &id006
+  - 26
+  - 28
+  - 2
+  - 19
+  core-mug-35ce7ede92198be2b759f7fb0032e59: &id007
+  - 18
+  - 29
+  - 26
+  - 22
+  core-mug-c51b79493419eccdc1584fff35347dc6: &id008
+  - 7
+  - 15
+  - 1
+  - 2
+  core-bowl-4227b58665eadcefc0dc3ed657ab97f0: &id009
+  - 2
+  - 6
+  - 24
+  - 14
+  core-bowl-e3095ecacc36080cb398a1cfd1079875: &id010
+  - 23
+  - 13
+  - 11
+  - 3
+  core-bowl-b65cbede8f483d51f7de4d28691515e1: &id011
+  - 13
+  - 12
+  - 1
+  - 4
+  core-bowl-817221e45b63cef62f74bdafe5239fba: &id012
+  - 9
+  - 0
+  - 3
+  - 4
+  core-camera-82819e1201d2dc583a3e53900c6cbba: &id013
+  - 16
+  - 7
+  - 22
+  - 17
+  core-camera-a3c9dcaada9e04d09061da204e7c463c: &id014
+  - 15
+  - 10
+  - 4
+  - 5
+  core-camera-9d79c246317bbbe87f72d6c7f2024896: &id015
+  - 17
+  - 27
+  - 26
+  - 2
+  core-camera-a59cbd50ecf38a1be2dc67b821479cc4: &id016
+  - 5
+  - 12
+  - 11
+  - 9
+selection_details:
+  core-bottle-714320da4aafcb4a47be2353d2b2403b:
+    indices: *id001
+    roles:
+      success_anchor_moderate: 14
+      success_anchor_strong: 12
+      failure_near_miss: 1
+      failure_median: 17
+    maximum_lift_m:
+      '14': 0.2878604531288147
+      '12': 0.5996460914611816
+      '1': 0.026955008506774902
+      '17': 0.0011265873908996582
+  core-bottle-dc005c019fbfb32c90071898148dca0e:
+    indices: *id002
+    roles:
+      success_anchor_moderate: 1
+      success_anchor_strong: 26
+      failure_near_miss: 16
+      failure_median: 6
+    maximum_lift_m:
+      '1': 0.18226271867752075
+      '26': 0.5077598690986633
+      '16': 0.06979137659072876
+      '6': 0.002187013626098633
+  core-bottle-d3eea69d9d58401c76c2a9de5c96f76:
+    indices: *id003
+    roles:
+      success_anchor_moderate: 20
+      success_anchor_strong: 7
+      failure_near_miss: 10
+      failure_median: 15
+    maximum_lift_m:
+      '20': 0.31432241201400757
+      '7': 0.49813252687454224
+      '10': 0.08215034008026123
+      '15': 0.002393066883087158
+  core-bottle-ba4b48d76eb79f7cf54e1b6f41fdd78a:
+    indices: *id004
+    roles:
+      success_anchor_moderate: 21
+      success_anchor_strong: 1
+      failure_near_miss: 28
+      failure_median: 6
+    maximum_lift_m:
+      '21': 0.36921370029449463
+      '1': 0.4750264286994934
+      '28': 0.037771522998809814
+      '6': 0.0052329301834106445
+  core-mug-1a97f3c83016abca21d0de04f408950f:
+    indices: *id005
+    roles:
+      success_anchor_moderate: 18
+      success_anchor_strong: 16
+      failure_near_miss: 7
+      failure_median: 2
+    maximum_lift_m:
+      '18': 0.281636118888855
+      '16': 0.5954607129096985
+      '7': 0.030650198459625244
+      '2': 0.009733438491821289
+  core-mug-b4ae56d6638d5338de671f28c83d2dcb:
+    indices: *id006
+    roles:
+      success_anchor_moderate: 26
+      success_anchor_strong: 28
+      failure_near_miss: 2
+      failure_median: 19
+    maximum_lift_m:
+      '26': 0.3798710107803345
+      '28': 0.498005747795105
+      '2': 0.08700084686279297
+      '19': 0.0043318867683410645
+  core-mug-35ce7ede92198be2b759f7fb0032e59:
+    indices: *id007
+    roles:
+      success_anchor_moderate: 18
+      success_anchor_strong: 29
+      failure_near_miss: 26
+      failure_median: 22
+    maximum_lift_m:
+      '18': 0.30177950859069824
+      '29': 0.5150386691093445
+      '26': 0.04474145174026489
+      '22': 0.003722965717315674
+  core-mug-c51b79493419eccdc1584fff35347dc6:
+    indices: *id008
+    roles:
+      success_anchor_moderate: 7
+      success_anchor_strong: 15
+      failure_near_miss: 1
+      failure_median: 2
+    maximum_lift_m:
+      '7': 0.20363670587539673
+      '15': 0.5750296115875244
+      '1': 0.2555304169654846
+      '2': 0.00608295202255249
+  core-bowl-4227b58665eadcefc0dc3ed657ab97f0:
+    indices: *id009
+    roles:
+      success_anchor_moderate: 2
+      success_anchor_strong: 6
+      failure_near_miss: 24
+      failure_median: 14
+    maximum_lift_m:
+      '2': 0.2918686866760254
+      '6': 0.5491877794265747
+      '24': 0.15316909551620483
+      '14': 0.018267810344696045
+  core-bowl-e3095ecacc36080cb398a1cfd1079875:
+    indices: *id010
+    roles:
+      success_anchor_moderate: 23
+      success_anchor_strong: 13
+      failure_near_miss: 11
+      failure_median: 3
+    maximum_lift_m:
+      '23': 0.2082861065864563
+      '13': 0.45773375034332275
+      '11': 0.055921196937561035
+      '3': 0.007734179496765137
+  core-bowl-b65cbede8f483d51f7de4d28691515e1:
+    indices: *id011
+    roles:
+      success_anchor_moderate: 13
+      success_anchor_strong: 12
+      failure_near_miss: 1
+      failure_median: 4
+    maximum_lift_m:
+      '13': 0.48962295055389404
+      '12': 0.501647412776947
+      '1': 0.03179740905761719
+      '4': 0.004898428916931152
+  core-bowl-817221e45b63cef62f74bdafe5239fba:
+    indices: *id012
+    roles:
+      success_anchor_moderate: 9
+      success_anchor_strong: 0
+      failure_near_miss: 3
+      failure_median: 4
+    maximum_lift_m:
+      '9': 0.4071088433265686
+      '0': 0.4808652997016907
+      '3': 0.17958444356918335
+      '4': 0.0006849765777587891
+  core-camera-82819e1201d2dc583a3e53900c6cbba:
+    indices: *id013
+    roles:
+      success_anchor_moderate: 16
+      success_anchor_strong: 7
+      failure_near_miss: 22
+      failure_median: 17
+    maximum_lift_m:
+      '16': 0.42493683099746704
+      '7': 0.6654171943664551
+      '22': 0.11441510915756226
+      '17': 0.0049231648445129395
+  core-camera-a3c9dcaada9e04d09061da204e7c463c:
+    indices: *id014
+    roles:
+      success_anchor_moderate: 15
+      success_anchor_strong: 10
+      failure_near_miss: 4
+      failure_median: 5
+    maximum_lift_m:
+      '15': 0.48647451400756836
+      '10': 0.5701606273651123
+      '4': 0.034918010234832764
+      '5': 0.008215546607971191
+  core-camera-9d79c246317bbbe87f72d6c7f2024896:
+    indices: *id015
+    roles:
+      success_anchor_moderate: 17
+      success_anchor_strong: 27
+      failure_near_miss: 26
+      failure_median: 2
+    maximum_lift_m:
+      '17': 0.33572328090667725
+      '27': 0.5238856077194214
+      '26': 0.0231359601020813
+      '2': 0.009772002696990967
+  core-camera-a59cbd50ecf38a1be2dc67b821479cc4:
+    indices: *id016
+    roles:
+      success_anchor_moderate: 5
+      success_anchor_strong: 12
+      failure_near_miss: 11
+      failure_median: 9
+    maximum_lift_m:
+      '5': 0.3379157781600952
+      '12': 0.4852495789527893
+      '11': 0.004337430000305176
+      '9': 4.965066909790039e-05
+total_environments: 64

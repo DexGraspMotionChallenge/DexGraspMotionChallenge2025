@@ -1,0 +1,29 @@
+status: frozen_before_any_learned_policy_evaluation
+purpose: >-
+  Geometry-shift confirmation set for robust hyperparameter selection. These
+  objects are disjoint from training, the reused 100-trajectory validation
+  set, and the locked final unseen-v2 set.
+selection_rule: >-
+  Use the two previously reserved farthest-point backup objects per category
+  from unseen_v2_candidates.json; selection is policy-blind.
+final_unseen_v2_used: false
+trajectory_root: dexgrasp/dataset/unseen_v2_candidates_preprocessed
+object_ids:
+- core-bottle-495dea92a04b43e6be9fabb33de62010
+- core-bottle-41ab1142420916e374bb1e92fd01dc00
+- core-mug-162201dfe14b73f0281365259d1cf342
+- core-mug-bf2b5e941b43d030138af902bc222a59
+- core-bowl-bb7586ebee0dc2be4e346ee2650d150
+- core-bowl-a9ba34614bfd8ca9938afc5c0b5b182
+- core-camera-2693df58698a2ca29c723bc28575d785
+- core-camera-290abe056b205c08240c46d333a693f
+retained_trajectory_counts:
+  core-bottle-495dea92a04b43e6be9fabb33de62010: 31
+  core-bottle-41ab1142420916e374bb1e92fd01dc00: 40
+  core-mug-162201dfe14b73f0281365259d1cf342: 33
+  core-mug-bf2b5e941b43d030138af902bc222a59: 34
+  core-bowl-bb7586ebee0dc2be4e346ee2650d150: 40
+  core-bowl-a9ba34614bfd8ca9938afc5c0b5b182: 39
+  core-camera-2693df58698a2ca29c723bc28575d785: 38
+  core-camera-290abe056b205c08240c46d333a693f: 38
+total_trajectories: 293

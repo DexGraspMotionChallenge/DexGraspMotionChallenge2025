@@ -1,0 +1,42 @@
+# Local RTX 4060 resource/stability profile, not a formal performance run.
+seed: 2025
+objects_per_category: 4
+trajectories_per_object: 1
+trajectory_index: 0
+horizon: 122
+history_frames: 3
+wrist_residual_scale: 0.05
+finger_residual_scale: 0.10
+contact_force_threshold: 0.5
+
+reward:
+  approach_progress: 10.0
+  contact_gain: 0.25
+  lift_progress: 40.0
+  milestone_heights_m: [0.02, 0.05, 0.10, 0.20]
+  milestone_rewards: [0.5, 0.5, 0.5, 0.5]
+  official_success_bonus: 10.0
+  drop_penalty: 10.0
+  fly_penalty: 10.0
+  normalized_residual_penalty: 0.01
+  normalized_residual_smoothness_penalty: 0.01
+
+iterations: 2
+rollout_steps: 32
+hidden_dims: [512, 256]
+init_std: 0.25
+
+ppo:
+  gamma: 0.99
+  gae_lambda: 0.95
+  clip_ratio: 0.2
+  value_coef: 0.5
+  entropy_coef: 0.001
+  learning_rate: 0.0001
+  max_grad_norm: 1.0
+  update_epochs: 4
+  minibatches: 4
+  target_kl: 0.03
+  advantage_normalization: category
+  min_advantage_std: 1.0
+  advantage_clip: 5.0

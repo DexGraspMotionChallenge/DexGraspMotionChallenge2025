@@ -1,0 +1,11 @@
+status: frozen_before_any_learned_policy_evaluation
+purpose: Final report-only evaluation; never use for training or model selection.
+object_ids:
+- core-bottle-ff13595434879bba557ef92e2fa0ccb2
+- core-bottle-74e5ea1a783a5f5f533775ea6714a372
+- core-mug-e94e46bc5833f2f5e57b873e4f3ef3a4
+- core-mug-5582a89be131867846ebf4f1147c3f0f
+- core-bowl-a29f53390194166665c638ab0bc6bc66
+- core-bowl-d28f7a7a8fbc5fc925b5a13384fa548b
+- core-camera-98fc1afc8dec9773b10c2418bc64b141
+- core-camera-d680d61f934eaa163b211460f022e3d9
